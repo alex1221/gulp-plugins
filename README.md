@@ -2,7 +2,7 @@
 关于gulp插件的描述
 
 
-## ![gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
+## [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
 
 ### 简介
 
@@ -63,11 +63,11 @@ gulp.task('js', function () {
 
 ```
 
-## ![gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)
+## [gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)
 
 ### 简介
 
-生成![sourcemap文件](http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)，因为文件压缩后不利于查看与调试，但是有了 `sourcemap` ，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。
+生成[sourcemap文件](http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)，因为文件压缩后不利于查看与调试，但是有了 `sourcemap` ，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。
 
 ### 使用
 
@@ -92,7 +92,7 @@ gulp.task('js', function () {
 
 ```
 
-### gulp-sourcemaps API，![资料来源](https://blog.csdn.net/liangxw1/article/details/80238655)
+### gulp-sourcemaps API，[资料来源](https://blog.csdn.net/liangxw1/article/details/80238655)
 
 #### sourcemaps.init()
 
@@ -143,16 +143,16 @@ sourcemaps.write('maps', {
 
 #### gulp-sourcemaps 支持的插件
 
-在 `sourcemaps.init()` 和 `sourcemaps.write()` 之间的所有插件都需要对 `gulp-sourcemaps` 进行支持，你可以在![Wiki](https://github.com/gulp-sourcemaps/gulp-sourcemaps/wiki/Plugins-with-gulp-sourcemaps-support)中查看这些插件的列表。
+在 `sourcemaps.init()` 和 `sourcemaps.write()` 之间的所有插件都需要对 `gulp-sourcemaps` 进行支持，你可以在[Wiki](https://github.com/gulp-sourcemaps/gulp-sourcemaps/wiki/Plugins-with-gulp-sourcemaps-support)中查看这些插件的列表。
 
 
-## 探究Gulp的Stream ![来源](https://segmentfault.com/a/1190000003770541)
+## 探究Gulp的Stream [来源](https://segmentfault.com/a/1190000003770541)
 
 为了让Gulp可以更多地利用当前Node生态体系的Stream，出现了许多Stream转换模块。下面介绍一些比较常用的。
 
 ### vinyl-source-stream
 
-![vinyl-source-stream](https://github.com/hughsk/vinyl-source-stream)可以把普通的Node Stream转换为Vinyl File Object Stream。这样，相当于就可以把普通Node Stream连接到Gulp体系内。具体用法是：
+[vinyl-source-stream](https://github.com/hughsk/vinyl-source-stream)可以把普通的Node Stream转换为Vinyl File Object Stream。这样，相当于就可以把普通Node Stream连接到Gulp体系内。具体用法是：
 
 ``` bash
 
@@ -177,7 +177,7 @@ vinyl-source-stream中的stream，指的是生成的Vinyl File Object，其conte
 
 ### vinyl-buffer
 
-![vinyl-buffer](https://github.com/hughsk/vinyl-buffer)接收Vinyl File Object作为输入，然后判断其contents类型，如果是Stream就转换为Buffer。
+[vinyl-buffer](https://github.com/hughsk/vinyl-buffer)接收Vinyl File Object作为输入，然后判断其contents类型，如果是Stream就转换为Buffer。
 
 很多常用的Gulp插件如gulp-sourcemaps、gulp-uglify，都只支持Buffer类型，因此vinyl-buffer可以在需要的时候派上用场。
 
