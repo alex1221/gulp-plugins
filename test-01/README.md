@@ -1,7 +1,7 @@
 
 ``` bash
 
-npm i gulp --save-dev
+npm i --save-dev gulp
 
 gulp
 

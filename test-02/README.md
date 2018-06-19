@@ -1,7 +1,7 @@
 
 ``` bash
 
-npm i gulp vinyl-source-stream --save-dev
+npm i --save-dev gulp vinyl-source-stream
 
 gulp
 

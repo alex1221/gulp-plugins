@@ -223,17 +223,54 @@ Gulp有一个比较令人头疼的问题是，如果管道中有任意一个插�
 ``` bash
 
 var gulp = require('gulp'),
-	gutil = require('gulp-util');
+    sass = require('gulp-sass'),
+    gutil = require('gulp-util'),
+    notifier = require('node-notifier');
 
+var logError = function (err) {
+    notifier.notify({
+        title: 'test-04',
+        message: 'Error:' + err.message
+    })
+};
+
+// 默认不处理，出现错误，会中断gulp
 gulp.task("default", function() {
-    return gulp.src(["./src/**/1.scss"])
-        .on('error', gutil.log)
+    return gulp.src(["./src/**/*.scss"])
+        .pipe(sass())
+        .pipe(gulp.dest("./dist"));
+});
+
+// 用on事件监听，自己定义错误处理函数
+gulp.task("error1", function() {
+    return gulp.src(["./src/**/*.scss"])
+        .pipe(sass())
+        .on("error", function(error) {
+            console.log(error.toString());
+            this.emit("end");
+        })
+        .pipe(gulp.dest("./dist"));
+});
+
+// 用on事件监听，用gulp-util的.log()方法
+gulp.task("error2", function() {
+    return gulp.src(["./src/**/*.scss"])
+        .pipe(sass())
+        .on("error", gutil.log)
+        .pipe(gulp.dest("./dist"));
+});
+
+// 用on事件监听，用notifier的.notify()方法，个人喜欢这一种。
+gulp.task("error3", function () {
+    return gulp.src(["./src/**/*.scss"])
+        .pipe(sass())
+        .on('error', logError)
         .pipe(gulp.dest("./dist"));
 });
 
 ```
 
-如果你不想这样自己定义错误处理函数，可以考虑gulp-util的.log()方法。
+如果你不想这样自己定义错误处理函数，可以考虑gulp-util的.log()方法或者notifier的.notify()方法。
 
 另外，这种方法可能会需要在多个位置加入on("error")，此时推荐gulp-plumber，这个插件可以很方便地处理整个管道内的错误。
 

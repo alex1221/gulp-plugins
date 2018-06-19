@@ -29,4 +29,4 @@ gulp.task('build-02', function () {
         .pipe(gulp.dest('dist/'))
 });
 
-gulp.task("default", ['build-01','build-02']);
+gulp.task("default", ['build-01', 'build-02']);
